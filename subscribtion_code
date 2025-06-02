@@ -1,0 +1,82 @@
+<!-- ConvertKit Script -->
+<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+
+<!-- Styled and Responsive Form -->
+<form action="https://app.kit.com/forms/8090227/subscriptions"
+method="post"
+class="formkit-form"
+data-sv-form="8090227"
+data-uid="4e399baa5c"
+style="
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+max-width: 100%;
+justify-content: space-between;
+">
+
+<!-- First Name -->
+<input type="text"
+name="fields[first_name]"
+placeholder="First Name"
+aria-label="First Name"
+required
+style="
+flex: 1 1 100%;
+min-width: 220px;
+padding: 14px 18px;
+font-size: 16px;
+border-radius: 10px;
+border: 1px solid rgba(255, 255, 255, 0.2);
+background: rgba(255, 255, 255, 0.05);
+color: #fff;
+">
+
+<!-- Email -->
+<input type="email"
+name="email_address"
+placeholder="Email Address"
+aria-label="Email Address"
+required
+style="
+flex: 1 1 100%;
+min-width: 220px;
+padding: 14px 18px;
+font-size: 16px;
+border-radius: 10px;
+border: 1px solid rgba(255, 255, 255, 0.2);
+background: rgba(255, 255, 255, 0.05);
+color: #fff;
+">
+
+<!-- Submit Button -->
+<button type="submit"
+style="
+flex: 1 1 100%;
+min-width: 200px;
+padding: 14px 22px;
+font-size: 16px;
+font-weight: bold;
+border: none;
+border-radius: 10px;
+background: linear-gradient(90deg, #4f8df9, #a844f7);
+color: white;
+cursor: pointer;
+transition: transform 0.2s ease;
+">
+Send Me the Checklist
+</button>
+
+<!-- Responsive behavior -->
+<style>
+@media (min-width: 640px) {
+.formkit-form {
+flex-wrap: nowrap !important;
+}
+.formkit-form input,
+.formkit-form button {
+flex: 1;
+}
+}
+</style>
+</form>
