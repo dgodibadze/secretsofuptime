@@ -1,6 +1,5 @@
 <!-- ConvertKit Script -->
 <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-
 <!-- Styled and Responsive Form -->
 <form action="https://app.kit.com/forms/8090227/subscriptions"
 method="post"
@@ -14,7 +13,6 @@ gap: 12px;
 max-width: 100%;
 justify-content: space-between;
 ">
-
 <!-- First Name -->
 <input type="text"
 name="fields[first_name]"
@@ -31,7 +29,6 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 background: rgba(255, 255, 255, 0.05);
 color: #fff;
 ">
-
 <!-- Email -->
 <input type="email"
 name="email_address"
@@ -48,9 +45,9 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 background: rgba(255, 255, 255, 0.05);
 color: #fff;
 ">
-
 <!-- Submit Button -->
 <button type="submit"
+class="submit-btn"
 style="
 flex: 1 1 100%;
 min-width: 200px;
@@ -62,12 +59,11 @@ border-radius: 10px;
 background: linear-gradient(90deg, #4f8df9, #a844f7);
 color: white;
 cursor: pointer;
-transition: transform 0.2s ease;
+transition: all 0.2s ease;
 ">
 Send Me the Checklist
 </button>
-
-<!-- Responsive behavior -->
+<!-- Responsive behavior and button hover -->
 <style>
 @media (min-width: 640px) {
 .formkit-form {
@@ -77,6 +73,15 @@ flex-wrap: nowrap !important;
 .formkit-form button {
 flex: 1;
 }
+}
+
+.submit-btn:hover {
+background: linear-gradient(90deg, #6ba3ff, #b855ff) !important;
+transform: translateY(-1px);
+}
+
+.submit-btn:active {
+transform: translateY(0);
 }
 </style>
 </form>
