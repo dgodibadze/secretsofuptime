@@ -1,265 +1,155 @@
-<!-- ConvertKit Script -->
-<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-<!-- Styled and Responsive Form -->
-<form action="https://app.kit.com/forms/8090227/subscriptions"
-method="post"
-class="formkit-form"
-data-sv-form="8090227"
-data-uid="4e399baa5c"
-style="
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ConvertKit Form - White Success Message Only</title>
+<style>
+body {
+background-color: #020c1b;
+font-family: system-ui, sans-serif;
+padding: 0;
+margin: 0;
+}
+
+.formkit-form[data-uid="4e399baa5c"] * {
+box-sizing: border-box;
+}
+
+.formkit-form[data-uid="4e399baa5c"] {
+width: 100%;
+}
+
+.formkit-fields {
 display: flex;
 flex-wrap: wrap;
 gap: 12px;
-max-width: 100%;
-justify-content: space-between;
-">
-<!-- First Name -->
-<div style="flex: 1 1 100%; min-width: 220px;">
-<label for="first-name" style="
-display: block;
-color: #fff;
-font-size: 14px;
-font-weight: 500;
-margin-bottom: 6px;
-">First Name</label>
-<input type="text"
-id="first-name"
-name="fields[first_name]"
-placeholder="Enter your first name"
-required
-aria-describedby="first-name-error"
-style="
 width: 100%;
-padding: 14px 18px;
-font-size: 16px;
-border-radius: 10px;
-border: 1px solid rgba(255, 255, 255, 0.2);
-background: rgba(255, 255, 255, 0.05);
-color: #fff;
-box-sizing: border-box;
-transition: border-color 0.2s ease, box-shadow 0.2s ease;
-">
-<div id="first-name-error" class="error-message" role="alert" aria-live="polite" style="display: none;">
-Please enter your first name
-</div>
-</div>
-<!-- Email -->
-<div style="flex: 1 1 100%; min-width: 220px;">
-<label for="email-address" style="
-display: block;
-color: #fff;
-font-size: 14px;
-font-weight: 500;
-margin-bottom: 6px;
-">Email Address</label>
-<input type="email"
-id="email-address"
-name="email_address"
-placeholder="Enter your email address"
-required
-aria-describedby="email-error"
-style="
-width: 100%;
-padding: 14px 18px;
-font-size: 16px;
-border-radius: 10px;
-border: 1px solid rgba(255, 255, 255, 0.2);
-background: rgba(255, 255, 255, 0.05);
-color: #fff;
-box-sizing: border-box;
-transition: border-color 0.2s ease, box-shadow 0.2s ease;
-">
-<div id="email-error" class="error-message" role="alert" aria-live="polite" style="display: none;">
-Please enter a valid email address
-</div>
-</div>
-<!-- Submit Button -->
-<button type="submit"
-class="submit-btn"
-style="
-flex: 1 1 100%;
-min-width: 200px;
-padding: 14px 22px;
-font-size: 16px;
-font-weight: bold;
-border: none;
-border-radius: 10px;
-background: linear-gradient(90deg, #4f8df9, #a844f7);
-color: white;
-cursor: pointer;
-transition: all 0.2s ease;
-">
-Send Me the Checklist
-</button>
-<!-- Responsive behavior and button hover -->
-<style>
-@media (min-width: 640px) {
-.formkit-form {
-flex-wrap: nowrap !important;
-}
-.formkit-form input,
-.formkit-form button {
-  flex: 1;
-  padding: 14px 18px;
-  font-size: 16px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  height: 52px; /* Enforces consistent height */
-}
 }
 
-.submit-btn:hover {
-background: linear-gradient(90deg, #6ba3ff, #b855ff) !important;
+.formkit-field,
+.formkit-submit {
+flex: 1;
+min-width: 150px;
+}
+
+.formkit-input {
+background: rgba(255, 255, 255, 0.05);
+font-size: 15px;
+padding: 16px 20px;
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 12px;
+line-height: 1.4;
+width: 100%;
+color: #fff;
+transition: all 300ms ease;
+}
+
+.formkit-input::placeholder {
+color: rgba(255, 255, 255, 0.7);
+}
+
+.formkit-input:focus {
+outline: none;
+border-color: #4f8df9;
+box-shadow: 0 0 0 3px rgba(79, 141, 249, 0.2);
+}
+
+.formkit-submit {
+border: 0;
+border-radius: 16px;
+background: linear-gradient(90deg, #4f8df9, #a844f7);
+color: #ffffff;
+cursor: pointer;
+text-align: center;
+font-size: 16px;
+font-weight: 600;
+padding: 0;
+position: relative;
+transition: all 300ms ease;
+box-shadow: 0 6px 24px rgba(79, 141, 249, 0.4);
+}
+
+.formkit-submit > span {
+display: block;
+padding: 16px 32px;
+transition: all 300ms ease-in-out;
+}
+
+.formkit-submit:hover,
+.formkit-submit:focus {
+background: linear-gradient(90deg, #6ba3ff, #b855ff);
 transform: translateY(-1px);
 }
 
-.submit-btn:active {
-transform: translateY(0);
+.formkit-submit:hover > span,
+.formkit-submit:focus > span {
+background-color: rgba(255,255,255,0.1);
 }
 
-/* Input focus states */
-input:focus {
-outline: none !important;
-border-color: #4f8df9 !important;
-box-shadow: 0 0 0 3px rgba(79, 141, 249, 0.2) !important;
+/* ✅ Success message in white, no box */
+[data-element="success-message"] {
+color: #ffffff !important;
+background: none !important;
+border: none !important;
+padding: 0 !important;
+margin-top: 24px;
+font-size: 16px;
+line-height: 1.5;
 }
 
-/* Label click improvements */
-label {
-cursor: pointer;
+@media (max-width: 640px) {
+.formkit-fields {
+flex-direction: column;
 }
-
-/* Error message styling */
-.error-message {
-color: #ff6b6b;
-font-size: 13px;
-margin-top: 4px;
-font-weight: 500;
-}
-
-/* Error state for inputs */
-input.error {
-border-color: #ff6b6b !important;
-box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2) !important;
-}
-
-/* Success state for inputs */
-input.valid {
-border-color: #51cf66 !important;
-box-shadow: 0 0 0 3px rgba(81, 207, 102, 0.2) !important;
 }
 </style>
+</head>
+<body>
+
+<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+
+<form
+action="https://app.kit.com/forms/8090227/subscriptions"
+class="seva-form formkit-form"
+method="post"
+data-sv-form="8090227"
+data-uid="4e399baa5c"
+data-format="inline"
+data-version="5"
+data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"✅ Success! Now check your email to get your checklist."}}}'
+>
+<div data-style="clean">
+<ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+<div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+<div class="formkit-field">
+<input
+class="formkit-input"
+aria-label="First Name"
+name="fields[first_name]"
+required
+placeholder="Enter your first name"
+type="text"
+/>
+</div>
+
+<div class="formkit-field">
+<input
+class="formkit-input"
+name="email_address"
+aria-label="Email Address"
+placeholder="Enter your email address"
+required
+type="email"
+/>
+</div>
+
+<button data-element="submit" class="formkit-submit">
+<span>Send Me the Checklist</span>
+</button>
+</div>
+</div>
 </form>
 
-<!-- Form validation JavaScript -->
-<script>
-(function() {
-const form = document.querySelector('.formkit-form');
-const firstNameInput = document.getElementById('first-name');
-const emailInput = document.getElementById('email-address');
-const firstNameError = document.getElementById('first-name-error');
-const emailError = document.getElementById('email-error');
-
-// Validation functions
-function validateName(name) {
-return name.trim().length >= 2;
-}
-
-function validateEmail(email) {
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-return emailRegex.test(email.trim());
-}
-
-// Show error
-function showError(input, errorElement, message) {
-input.classList.add('error');
-input.classList.remove('valid');
-errorElement.textContent = message;
-errorElement.style.display = 'block';
-}
-
-// Show success
-function showSuccess(input, errorElement) {
-input.classList.remove('error');
-input.classList.add('valid');
-errorElement.style.display = 'none';
-}
-
-// Clear validation
-function clearValidation(input, errorElement) {
-input.classList.remove('error', 'valid');
-errorElement.style.display = 'none';
-}
-
-// Real-time validation
-firstNameInput.addEventListener('blur', function() {
-const value = this.value.trim();
-if (value === '') {
-showError(this, firstNameError, 'Please enter your first name');
-} else if (!validateName(value)) {
-showError(this, firstNameError, 'First name must be at least 2 characters');
-} else {
-showSuccess(this, firstNameError);
-}
-});
-
-emailInput.addEventListener('blur', function() {
-const value = this.value.trim();
-if (value === '') {
-showError(this, emailError, 'Please enter your email address');
-} else if (!validateEmail(value)) {
-showError(this, emailError, 'Please enter a valid email address');
-} else {
-showSuccess(this, emailError);
-}
-});
-
-// Clear errors when user starts typing
-firstNameInput.addEventListener('input', function() {
-if (this.classList.contains('error')) {
-clearValidation(this, firstNameError);
-}
-});
-
-emailInput.addEventListener('input', function() {
-if (this.classList.contains('error')) {
-clearValidation(this, emailError);
-}
-});
-
-// Form submission validation
-form.addEventListener('submit', function(e) {
-let isValid = true;
-
-// Validate first name
-const firstName = firstNameInput.value.trim();
-if (firstName === '') {
-showError(firstNameInput, firstNameError, 'Please enter your first name');
-isValid = false;
-} else if (!validateName(firstName)) {
-showError(firstNameInput, firstNameError, 'First name must be at least 2 characters');
-isValid = false;
-}
-
-// Validate email
-const email = emailInput.value.trim();
-if (email === '') {
-showError(emailInput, emailError, 'Please enter your email address');
-isValid = false;
-} else if (!validateEmail(email)) {
-showError(emailInput, emailError, 'Please enter a valid email address');
-isValid = false;
-}
-
-// Prevent submission if invalid
-if (!isValid) {
-e.preventDefault();
-// Focus first error field
-const firstError = form.querySelector('.error');
-if (firstError) {
-firstError.focus();
-}
-}
-});
-})();
-</script>
+</body>
+</html>
