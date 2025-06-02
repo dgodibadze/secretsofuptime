@@ -14,37 +14,65 @@ max-width: 100%;
 justify-content: space-between;
 ">
 <!-- First Name -->
-<input type="text"
-name="fields[first_name]"
-placeholder="First Name"
-aria-label="First Name"
-required
-style="
-flex: 1 1 100%;
-min-width: 220px;
-padding: 14px 18px;
-font-size: 16px;
-border-radius: 10px;
-border: 1px solid rgba(255, 255, 255, 0.2);
-background: rgba(255, 255, 255, 0.05);
-color: #fff;
-">
+<div style="flex: 1 1 100%; min-width: 220px;">
+  <label for="first-name" style="
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  ">First Name</label>
+  <input type="text"
+  id="first-name"
+  name="fields[first_name]"
+  placeholder="Enter your first name"
+  required
+  aria-describedby="first-name-error"
+  style="
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  ">
+  <div id="first-name-error" class="error-message" role="alert" aria-live="polite" style="display: none;">
+    Please enter your first name
+  </div>
+</div>
 <!-- Email -->
-<input type="email"
-name="email_address"
-placeholder="Email Address"
-aria-label="Email Address"
-required
-style="
-flex: 1 1 100%;
-min-width: 220px;
-padding: 14px 18px;
-font-size: 16px;
-border-radius: 10px;
-border: 1px solid rgba(255, 255, 255, 0.2);
-background: rgba(255, 255, 255, 0.05);
-color: #fff;
-">
+<div style="flex: 1 1 100%; min-width: 220px;">
+  <label for="email-address" style="
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  ">Email Address</label>
+  <input type="email"
+  id="email-address"
+  name="email_address"
+  placeholder="Enter your email address"
+  required
+  aria-describedby="email-error"
+  style="
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  ">
+  <div id="email-error" class="error-message" role="alert" aria-live="polite" style="display: none;">
+    Please enter a valid email address
+  </div>
+</div>
 <!-- Submit Button -->
 <button type="submit"
 class="submit-btn"
@@ -83,5 +111,150 @@ transform: translateY(-1px);
 .submit-btn:active {
 transform: translateY(0);
 }
+
+/* Input focus states */
+input:focus {
+outline: none !important;
+border-color: #4f8df9 !important;
+box-shadow: 0 0 0 3px rgba(79, 141, 249, 0.2) !important;
+}
+
+/* Label click improvements */
+label {
+cursor: pointer;
+}
+
+/* Error message styling */
+.error-message {
+color: #ff6b6b;
+font-size: 13px;
+margin-top: 4px;
+font-weight: 500;
+}
+
+/* Error state for inputs */
+input.error {
+border-color: #ff6b6b !important;
+box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2) !important;
+}
+
+/* Success state for inputs */
+input.valid {
+border-color: #51cf66 !important;
+box-shadow: 0 0 0 3px rgba(81, 207, 102, 0.2) !important;
+}
 </style>
 </form>
+
+<!-- Form validation JavaScript -->
+<script>
+(function() {
+  const form = document.querySelector('.formkit-form');
+  const firstNameInput = document.getElementById('first-name');
+  const emailInput = document.getElementById('email-address');
+  const firstNameError = document.getElementById('first-name-error');
+  const emailError = document.getElementById('email-error');
+
+  // Validation functions
+  function validateName(name) {
+    return name.trim().length >= 2;
+  }
+
+  function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email.trim());
+  }
+
+  // Show error
+  function showError(input, errorElement, message) {
+    input.classList.add('error');
+    input.classList.remove('valid');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+  }
+
+  // Show success
+  function showSuccess(input, errorElement) {
+    input.classList.remove('error');
+    input.classList.add('valid');
+    errorElement.style.display = 'none';
+  }
+
+  // Clear validation
+  function clearValidation(input, errorElement) {
+    input.classList.remove('error', 'valid');
+    errorElement.style.display = 'none';
+  }
+
+  // Real-time validation
+  firstNameInput.addEventListener('blur', function() {
+    const value = this.value.trim();
+    if (value === '') {
+      showError(this, firstNameError, 'Please enter your first name');
+    } else if (!validateName(value)) {
+      showError(this, firstNameError, 'First name must be at least 2 characters');
+    } else {
+      showSuccess(this, firstNameError);
+    }
+  });
+
+  emailInput.addEventListener('blur', function() {
+    const value = this.value.trim();
+    if (value === '') {
+      showError(this, emailError, 'Please enter your email address');
+    } else if (!validateEmail(value)) {
+      showError(this, emailError, 'Please enter a valid email address');
+    } else {
+      showSuccess(this, emailError);
+    }
+  });
+
+  // Clear errors when user starts typing
+  firstNameInput.addEventListener('input', function() {
+    if (this.classList.contains('error')) {
+      clearValidation(this, firstNameError);
+    }
+  });
+
+  emailInput.addEventListener('input', function() {
+    if (this.classList.contains('error')) {
+      clearValidation(this, emailError);
+    }
+  });
+
+  // Form submission validation
+  form.addEventListener('submit', function(e) {
+    let isValid = true;
+
+    // Validate first name
+    const firstName = firstNameInput.value.trim();
+    if (firstName === '') {
+      showError(firstNameInput, firstNameError, 'Please enter your first name');
+      isValid = false;
+    } else if (!validateName(firstName)) {
+      showError(firstNameInput, firstNameError, 'First name must be at least 2 characters');
+      isValid = false;
+    }
+
+    // Validate email
+    const email = emailInput.value.trim();
+    if (email === '') {
+      showError(emailInput, emailError, 'Please enter your email address');
+      isValid = false;
+    } else if (!validateEmail(email)) {
+      showError(emailInput, emailError, 'Please enter a valid email address');
+      isValid = false;
+    }
+
+    // Prevent submission if invalid
+    if (!isValid) {
+      e.preventDefault();
+      // Focus first error field
+      const firstError = form.querySelector('.error');
+      if (firstError) {
+        firstError.focus();
+      }
+    }
+  });
+})();
+</script>
