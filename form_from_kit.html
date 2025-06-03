@@ -1,155 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ConvertKit Form - White Success Message Only</title>
-<style>
-body {
-background-color: #020c1b;
-font-family: system-ui, sans-serif;
-padding: 0;
-margin: 0;
-}
-
-.formkit-form[data-uid="4e399baa5c"] * {
-box-sizing: border-box;
-}
-
-.formkit-form[data-uid="4e399baa5c"] {
-width: 100%;
-}
-
-.formkit-fields {
-display: flex;
-flex-wrap: wrap;
-gap: 12px;
-width: 100%;
-}
-
-.formkit-field,
-.formkit-submit {
-flex: 1;
-min-width: 150px;
-}
-
-.formkit-input {
-background: rgba(255, 255, 255, 0.05);
-font-size: 15px;
-padding: 16px 20px;
-border: 1px solid rgba(255, 255, 255, 0.2);
-border-radius: 12px;
-line-height: 1.4;
-width: 100%;
-color: #fff;
-transition: all 300ms ease;
-}
-
-.formkit-input::placeholder {
-color: rgba(255, 255, 255, 0.7);
-}
-
-.formkit-input:focus {
-outline: none;
-border-color: #4f8df9;
-box-shadow: 0 0 0 3px rgba(79, 141, 249, 0.2);
-}
-
-.formkit-submit {
-border: 0;
-border-radius: 16px;
-background: linear-gradient(90deg, #4f8df9, #a844f7);
-color: #ffffff;
-cursor: pointer;
-text-align: center;
-font-size: 16px;
-font-weight: 600;
-padding: 0;
-position: relative;
-transition: all 300ms ease;
-box-shadow: 0 6px 24px rgba(79, 141, 249, 0.4);
-}
-
-.formkit-submit > span {
-display: block;
-padding: 16px 32px;
-transition: all 300ms ease-in-out;
-}
-
-.formkit-submit:hover,
-.formkit-submit:focus {
-background: linear-gradient(90deg, #6ba3ff, #b855ff);
-transform: translateY(-1px);
-}
-
-.formkit-submit:hover > span,
-.formkit-submit:focus > span {
-background-color: rgba(255,255,255,0.1);
-}
-
-/* ✅ Success message in white, no box */
-[data-element="success-message"] {
-color: #ffffff !important;
-background: none !important;
-border: none !important;
-padding: 0 !important;
-margin-top: 24px;
-font-size: 16px;
-line-height: 1.5;
-}
-
-@media (max-width: 640px) {
-.formkit-fields {
-flex-direction: column;
-}
-}
-</style>
-</head>
-<body>
-
 <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 
 <form
-action="https://app.kit.com/forms/8090227/subscriptions"
-class="seva-form formkit-form"
-method="post"
-data-sv-form="8090227"
-data-uid="4e399baa5c"
-data-format="inline"
-data-version="5"
-data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"✅ Success! Now check your email to get your checklist."}}}'
+  action="https://app.kit.com/forms/8090227/subscriptions"
+  class="seva-form formkit-form"
+  method="post"
+  data-sv-form="8090227"
+  data-uid="4e399baa5c"
+  data-format="inline"
+  data-version="5"
+  data-options='{
+    "settings": {
+      "after_subscribe": {
+        "action": "message",
+        "success_message": "Now check your email to get your checklist.",
+        "redirect_url": "https://confirm-subscription.davidgodibadze.com/?access=secretsofconfirmation"
+      },
+      "analytics": {
+        "google": null,
+        "fathom": null,
+        "facebook": null,
+        "segment": null,
+        "pinterest": null,
+        "sparkloop": null,
+        "googletagmanager": null
+      },
+      "modal": {
+        "trigger": "timer",
+        "scroll_percentage": null,
+        "timer": 5,
+        "devices": "all",
+        "show_once_every": 15
+      },
+      "powered_by": {
+        "show": false,
+        "url": "https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"
+      },
+      "recaptcha": {
+        "enabled": false
+      },
+      "return_visitor": {
+        "action": "show",
+        "custom_content": ""
+      },
+      "slide_in": {
+        "display_in": "bottom_right",
+        "trigger": "timer",
+        "scroll_percentage": null,
+        "timer": 5,
+        "devices": "all",
+        "show_once_every": 15
+      },
+      "sticky_bar": {
+        "display_in": "top",
+        "trigger": "timer",
+        "scroll_percentage": null,
+        "timer": 5,
+        "devices": "all",
+        "show_once_every": 15
+      }
+    },
+    "version": "5"
+  }'
+  min-width="400 500 600 700 800"
 >
-<div data-style="clean">
-<ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-<div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-<div class="formkit-field">
-<input
-class="formkit-input"
-aria-label="First Name"
-name="fields[first_name]"
-required
-placeholder="Enter your first name"
-type="text"
-/>
-</div>
+  <div data-style="clean">
+    <ul
+      class="formkit-alert formkit-alert-error"
+      data-element="errors"
+      data-group="alert"
+    ></ul>
 
-<div class="formkit-field">
-<input
-class="formkit-input"
-name="email_address"
-aria-label="Email Address"
-placeholder="Enter your email address"
-required
-type="email"
-/>
-</div>
+    <div
+      data-element="fields"
+      data-stacked="false"
+      class="seva-fields formkit-fields"
+    >
+      <div class="formkit-field">
+        <input
+          class="formkit-input"
+          aria-label="First Name"
+          name="fields[first_name]"
+          required
+          placeholder="First Name"
+          type="text"
+          style="
+            color: rgb(195, 207, 220);
+            border-color: rgb(195, 207, 220);
+            border-radius: 12px;
+            font-weight: 400;
+          "
+        />
+      </div>
 
-<button data-element="submit" class="formkit-submit">
-<span>Send Me the Checklist</span>
-</button>
-</div>
-</div>
+      <div class="formkit-field">
+        <input
+          class="formkit-input"
+          name="email_address"
+          aria-label="Email Address"
+          placeholder="Email Address"
+          required
+          type="email"
+          style="
+            color: rgb(195, 207, 220);
+            border-color: rgb(195, 207, 220);
+            border-radius: 12px;
+            font-weight: 400;
+          "
+        />
+      </div>
+
+      <button
+        data-element="submit"
+        class="formkit-submit formkit-submit"
+        style="
+          color: rgb(195, 207, 220);
+          background-color: rgb(15, 33, 67);
+          border-radius: 12px;
+          font-weight: 400;
+        "
+      >
+        <div class="formkit-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <span class="">Send me the checklist</span>
+      </button>
+    </div>
+  </div>
+
+  <style>
+    .formkit-form[data-uid="4e399baa5c"] * {
+      box-sizing: border-box;
+    }
+    .formkit-form[data-uid="4e399baa5c"] {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .formkit-form[data-uid="4e399baa5c"] .formkit-fields {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+    .formkit-form[data-uid="4e399baa5c"] .formkit-field,
+    .formkit-form[data-uid="4e399baa5c"] .formkit-submit {
+      margin: 0 0 15px 0;
+      flex: 1 0 100%;
+    }
+    .formkit-form[data-uid="4e399baa5c"] .formkit-submit {
+      position: static;
+    }
+    .formkit-form[data-uid="4e399baa5c"] [data-style="clean"] {
+      width: 100%;
+    }
+    @media (min-width: 700px) {
+      .formkit-form[data-uid="4e399baa5c"][data-format="inline"]
+        .formkit-fields[data-stacked="false"]
+        .formkit-field,
+      .formkit-form[data-uid="4e399baa5c"][data-format="inline"]
+        .formkit-fields[data-stacked="false"]
+        .formkit-submit {
+        flex: 1 1 auto;
+        margin: 0 5px 15px 5px;
+      }
+    }
+  </style>
 </form>
-
-</body>
-</html>
