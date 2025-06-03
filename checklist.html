@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Downtime Risk Checklist</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a1124;
+      color: white;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #ffffff;
+      text-align: center;
+    }
+    .category {
+      margin-bottom: 2rem;
+    }
+    .category h3 {
+      color: #b3b3ff;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0;
+    }
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+    .score-box {
+      background: #1e263b;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .risk-message {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 Your Downtime Risk Score</h1>
+  <div class="score-box">
+    <div id="score">0 / 16</div>
+    <div class="risk-message" id="riskLevel">Click items above to calculate your score</div>
+  </div>
+  <p style="text-align:center; max-width: 600px; margin: 1rem auto 2rem auto;">
+    Start checking off items that apply to your business to see your network resilience level.
+  </p>
+
+  <form id="checklist">
+    <div class="category">
+      <h3>🌐 Internet Uptime</h3>
+      <label><input type="checkbox" />We have two internet providers - if one fails, the other keeps us online.</label>
+      <label><input type="checkbox" />Our system switches automatically when the main internet goes out.</label>
+      <label><input type="checkbox" />We don't rely on a cellphone hotspot to keep the business online.</label>
+      <label><input type="checkbox" />We've tested our backup internet in the last 3 months.</label>
+    </div>
+    <div class="category">
+      <h3>📶 Wi-Fi & Office Coverage</h3>
+      <label><input type="checkbox" />We use business-grade Wi-Fi gear, not the one from the cable company.</label>
+      <label><input type="checkbox" />We have multiple Wi-Fi access points to avoid single-point failure.</label>
+      <label><input type="checkbox" />Our guest Wi-Fi can't access business systems and files.</label>
+      <label><input type="checkbox" />Our Wi-Fi name (SSID) is protected with a strong password, not from ISP.</label>
+    </div>
+    <div class="category">
+      <h3>🏢 Inside the Office Network</h3>
+      <label><input type="checkbox" />Critical devices (POS, front desk, servers) are wired directly, not through random hubs.</label>
+      <label><input type="checkbox" />We use a business-class router, not the ISP's default one.</label>
+      <label><input type="checkbox" />We have a backup router/switch/Wi-Fi ready to go if the main one fails.</label>
+      <label><input type="checkbox" />All our network gear are under vendor contract for support and updates.</label>
+    </div>
+    <div class="category">
+      <h3>⚙️ Equipment & Readiness</h3>
+      <label><input type="checkbox" />All network gear is from reliable business brands, not the cheap one from Amazon or Walmart.</label>
+      <label><input type="checkbox" />We've replaced outdated gear in the last 3 years.</label>
+      <label><input type="checkbox" />Key devices are on battery backup or we know their uptime during outages.</label>
+      <label><input type="checkbox" />We keep a spare router, switch, or Wi-Fi unit on-site or nearby.</label>
+    </div>
+  </form>
+
+  <script>
+    const checklist = document.getElementById('checklist');
+    const score = document.getElementById('score');
+    const riskLevel = document.getElementById('riskLevel');
+
+    checklist.addEventListener('change', () => {
+      const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+      let checked = 0;
+      checkboxes.forEach(cb => {
+        if (cb.checked) checked++;
+      });
+      score.textContent = `${checked} / 16`;
+
+      if (checked <= 5) {
+        riskLevel.textContent = '🚨 High Risk: One issue could bring everything to a stop. Your network needs immediate attention to avoid costly downtime';
+        riskLevel.style.color = 'red';
+      } else if (checked <= 11) {
+        riskLevel.textContent = '⚠️ Moderate Risk: You\'ve made progress, but gaps remain. Address the unchecked items to improve your network resilience.';
+        riskLevel.style.color = 'orange';
+      } else {
+        riskLevel.textContent = '✅ Low Risk: Well done! You\'re better prepared than most small businesses. Keep maintaining your network infrastructure.';
+        riskLevel.style.color = 'limegreen';
+      }
+    });
+  </script>
+</body>
+</html>
