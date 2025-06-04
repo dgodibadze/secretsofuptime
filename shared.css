@@ -175,3 +175,28 @@ p {
     flex-direction: column;   /* Stack items on small screens */
   }
 }
+
+/* === Score Box and Risk Message === */
+.score-box {
+  background: var(--bg-card);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.risk-message {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}
+
+@media (max-width: 480px) {
+  .score-box {
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
+}
