@@ -1,26 +1,30 @@
 :root {
-  --bg-body: #0a1124;
-  --bg-card: #111C35;
-  --bg-light: #1B2545;
-  --text-light: #C3CFDC;
-  --text-dark: #333;
-  --text-muted: #6c757d;
-  --highlight: #336DDE;
-  --primary: #F5F5F5;
-  --primary-hover: #4754D4;
-  --accent: #A960EE;
-  --border-color: #3A4B7C;
-  --radius: 8px;
-  --radius-lg: 8px;
-  --font-base: 16px;
-  --font-sm: 14px;
-  --font-xs: 13px;
-  --max-width: 1080px;
+  /* === Color Palette === */
+  --bg-body: #0a1124;               /* Body background */
+  /*   --bg-body: transparent;           /* Body background */
+  --bg-card: #111C35;               /* Card/container background */
+  --bg-light: #1B2545;              /* Light background (e.g. inputs) */
+  --text-light: #C3CFDC;            /* Light-colored text (used on dark backgrounds) */
+  --text-dark: #333;                /* Default text for light backgrounds */
+  --text-muted: #6c757d;            /* Dimmed/secondary text */
+  --highlight: #336DDE;             /* Accent color for subheadings (h2) */
+  --primary: #F5F5F5;               /* Primary heading color (h1) */
+  --primary-hover: #4754D4;         /* Hover effect for primary buttons */
+  --accent: #A960EE;                /* Accent color used in input focus state */
+  --border-color: #3A4B7C;          /* Default border color (e.g. for cards) */
 
-  /* Centralize Width via Container */
-  --form-control-max-width: 240px;
+  /* === Radius and Font Sizes === */
+  --radius: 8px;                    /* Standard border radius */
+  --radius-lg: 8px;                 /* Larger border radius for cards */
+  --font-base: 16px;                /* Default text size */
+  --font-sm: 14px;                  /* Muted/small text */
+  --font-xs: 13px;                  /* Extra small/tooltip text */
+  --max-width: 1080px;              /* Max width for card containers */
 
-  /* Card gradients and border colors */
+  /* === Shared Form Element Width === */
+  --form-control-max-width: 240px;  /* Input/button width limit (used for alignment) */
+
+  /* === Card Gradient Colors === */
   --blue-gradient-start: #0F2A5C;
   --blue-gradient-end: #12264C;
   --blue-border-highlight: #489DF5;
@@ -37,28 +41,29 @@
   --purple-gradient-end: #142342;
   --purple-border-highlight: #B579F6;
 
-  /* Button sizes, gradients, and border colors */
-  --button-gradient: linear-gradient(90deg, #5865F2, #A960EE);
-  --button-gradient-hover: linear-gradient(90deg, #4754D4, #954ED1);
-  --button-border: #7D6EFF;
-  /*  --button-max-width: 240px; */
-  --button-radius: var(--radius);
-  --button-padding: 0.6rem 1rem;
+  /* === Button Styling === */
+  --button-gradient: linear-gradient(90deg, #5865F2, #A960EE);     /* Main button gradient */
+  --button-gradient-hover: linear-gradient(90deg, #4754D4, #954ED1); /* Button on hover */
+  --button-border: #7D6EFF;                                       /* Border color for buttons */
+  /* --button-max-width: 240px; */                                /* Deprecated, use --form-control-max-width */
+  --button-radius: var(--radius);                                /* Border radius for button */
+  --button-padding: 0.6rem 1rem;                                  /* Button inner spacing */
 
-  /* Input sizes, gradients, and border colors */
-  --input-bg: var(--bg-light);
-  --input-text: var(--text-light);
-  --input-border: #5C5A7A;
-  /*  --input-max-width: 240px; */
-  --input-radius: var(--radius);
-  --input-padding: 0.6rem 1rem;
-
+  /* === Input Styling === */
+  --input-bg: var(--bg-light);                                   /* Input field background */
+  --input-text: var(--text-light);                               /* Input field text */
+  --input-border: #5C5A7A;                                       /* Input border color */
+  /* --input-max-width: 240px; */                                /* Deprecated, use --form-control-max-width */
+  --input-radius: var(--radius);                                 /* Border radius for inputs */
+  --input-padding: 0.6rem 1rem;                                  /* Input inner spacing */
 }
 
+/* === Ensure padding/border is included in total width/height === */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+/* === Page Background and Typography === */
 body {
   background-color: var(--bg-body);
   color: var(--text-light);
@@ -66,6 +71,7 @@ body {
   padding: 2rem;
 }
 
+/* === Card / Container Block === */
 .card {
   background-color: var(--bg-card);
   padding: 1.5rem;
@@ -75,20 +81,23 @@ body {
   margin: 1rem auto;
 }
 
+/* === Headings === */
 h1 {
   font-size: 24px;
-  color: var(--primary);
+  color: var(--primary); /* H1 uses primary color */
 }
 
 h2 {
   font-size: 20px;
-  color: var(--highlight);
+  color: var(--highlight); /* H2 uses highlight color */
 }
 
+/* === Paragraph Styling === */
 p {
   font-size: var(--font-base);
 }
 
+/* === Utility Text Classes === */
 .muted {
   color: var(--text-muted);
   font-size: var(--font-sm);
@@ -100,6 +109,7 @@ p {
   color: var(--text-muted);
 }
 
+/* === Button Styling === */
 .button {
   display: inline-block;
   background: var(--button-gradient);
@@ -107,7 +117,7 @@ p {
   border: 1px solid var(--button-border);
   border-radius: var(--button-radius);
   padding: var(--button-padding);
-  width: 100%;
+  width: 100%; /* Full width in flex layout */
   margin-top: 0.5rem;
   font-size: var(--font-base);
   cursor: pointer;
@@ -119,9 +129,10 @@ p {
 }
 
 .button:active {
-  filter: brightness(0.9);
+  filter: brightness(0.9); /* Dim button on click */
 }
 
+/* === Input Field Styling === */
 .input {
   background-color: var(--input-bg);
   color: var(--input-text);
@@ -141,12 +152,13 @@ p {
 
 .input:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--accent); /* Accent on focus */
 }
 
+/* === Form Row Flex Layout === */
 .form-row {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.75rem;               /* Spacing between children */
   flex-wrap: wrap;
   width: 100%;
   max-width: 100%;
@@ -154,12 +166,13 @@ p {
 
 .form-row .input,
 .form-row .button {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 1 1 0;                 /* Grow/shrink with available space */
+  min-width: 0;               /* Prevent overflow */
 }
 
+/* === Mobile Stacking === */
 @media (max-width: 640px) {
   .form-row {
-    flex-direction: column;
+    flex-direction: column;   /* Stack items on small screens */
   }
 }

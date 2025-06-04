@@ -4,32 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSS Variable Demo</title>
+
+  <!-- Link to external shared CSS file containing all theme variables -->
   <link rel="stylesheet" href="shared.css" />
+
+  <!-- Page-specific demo styling -->
   <style>
+    /* Label text shown above each demo block */
     .label {
       font-size: 13px;
       font-style: italic;
       color: var(--text-muted);
       margin-bottom: 4px;
     }
+
+    /* Spacing between demo sections */
     .demo-block {
       margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
+  <!-- Main container using .card style (background, padding, border) -->
   <div class="card">
+
+    <!-- Body text demo using --text-light -->
     <div class="demo-block">
       <div class="label">--text-light on body</div>
       <p>This is body text styled with <code>--text-light</code>.</p>
     </div>
 
+    <!-- Headings styled using --primary and --highlight -->
     <div class="demo-block">
       <div class="label">--primary (h1), --highlight (h2)</div>
       <h1>Primary Heading</h1>
       <h2>Highlighted Subheading</h2>
     </div>
 
+    <!-- Font sizing demo: base, small, and extra small text -->
     <div class="demo-block">
       <div class="label">--font-base (p), --font-sm (.muted), --font-xs (.small)</div>
       <p>This is normal text.</p>
@@ -37,31 +49,44 @@
       <p class="small">This is extra small italic text.</p>
     </div>
 
+    <!-- Responsive form row: inputs + button side-by-side on desktop, stacked on mobile -->
     <div class="demo-block">
       <div class="label" style="margin-bottom: 1rem;">Input fields and button side by side</div>
+
+      <!-- .form-row uses flex layout and media query to stack on mobile -->
       <div class="form-row">
+        <!-- Styled with .input (width, color, padding, border, placeholder) -->
         <input class="input" type="text" placeholder="First Name" />
         <input class="input" type="email" placeholder="Email Address" />
+
+        <!-- Styled with .button (gradient, hover, active, responsive width) -->
         <button class="button">Click me</button>
       </div>
     </div>
-</div>
 
+  </div>
+
+  <!-- === DEMO: Color blocks using card gradient + border variables === -->
+
+  <!-- Blue variant using --blue-gradient-* and --blue-border-highlight -->
   <div class="demo-block card" style="background: linear-gradient(to right, var(--blue-gradient-start), var(--blue-gradient-end)); border-color: var(--blue-border-highlight);">
     <div class="label">--blue-gradient-* with --blue-border-highlight</div>
     <p>Blue gradient background and border.</p>
   </div>
 
+  <!-- Red variant -->
   <div class="demo-block card" style="background: linear-gradient(to right, var(--red-gradient-start), var(--red-gradient-end)); border-color: var(--red-border-highlight);">
     <div class="label">--red-gradient-* with --red-border-highlight</div>
     <p>Red gradient background and border.</p>
   </div>
 
+  <!-- Green variant -->
   <div class="demo-block card" style="background: linear-gradient(to right, var(--green-gradient-start), var(--green-gradient-end)); border-color: var(--green-border-highlight);">
     <div class="label">--green-gradient-* with --green-border-highlight</div>
     <p>Green gradient background and border.</p>
   </div>
 
+  <!-- Purple variant -->
   <div class="demo-block card" style="background: linear-gradient(to right, var(--purple-gradient-start), var(--purple-gradient-end)); border-color: var(--purple-border-highlight);">
     <div class="label">--purple-gradient-* with --purple-border-highlight</div>
     <p>Purple gradient background and border.</p>
