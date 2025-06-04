@@ -190,6 +190,7 @@ p {
 .risk-message {
   margin-top: 0.5rem;
   font-weight: bold;
+  text-align: center;
   opacity: 0;
   transition: opacity 0.8s ease-in;
 }
