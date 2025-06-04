@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dgodibadze/web-specs/shared.css" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Is Your Network Actually Resilient?</title>
@@ -87,41 +88,54 @@ font-size: 95%;
 <body>
 
 <form id="checklist">
+  <div class="category card" style="background: linear-gradient(to right, var(--red-gradient-start), var(--red-gradient-end)); border-color: var(--red-border-highlight);">
+    <h3 style="color: var(--red-border-highlight);">🌐 Internet Uptime</h3>
+    <label for="uptime1"><input id="uptime1" name="uptime1" type="checkbox" />We have two internet providers - if one fails, the other keeps us online.</label>
+    <label for="uptime2"><input id="uptime2" name="uptime2" type="checkbox" />Our system switches automatically when the main internet goes out.</label>
+    <label for="uptime3"><input id="uptime3" name="uptime3" type="checkbox" />We don't rely on a cellphone hotspot to keep the business online.</label>
+    <label for="uptime4"><input id="uptime4" name="uptime4" type="checkbox" />We've tested our backup internet in the last 3 months.</label>
+  </div>
 <div class="category">
-<h3>🌐 Internet Uptime</h3>
-<label for="uptime1"><input id="uptime1" name="uptime1" type="checkbox" />We have two internet providers - if one fails, the other keeps us online.</label>
-<label for="uptime2"><input id="uptime2" name="uptime2" type="checkbox" />Our system switches automatically when the main internet goes out.</label>
-<label for="uptime3"><input id="uptime3" name="uptime3" type="checkbox" />We don't rely on a cellphone hotspot to keep the business online.</label>
-<label for="uptime4"><input id="uptime4" name="uptime4" type="checkbox" />We've tested our backup internet in the last 3 months.</label>
-</div>
-<div class="category">
-<h3>📶 Wi-Fi & Office Coverage</h3>
-<label for="wifi1"><input id="wifi1" name="wifi1" type="checkbox" />We use business-grade Wi-Fi gear, not the one from the cable company.</label>
-<label for="wifi2"><input id="wifi2" name="wifi2" type="checkbox" />We have multiple Wi-Fi access points to avoid single-point failure.</label>
-<label for="wifi3"><input id="wifi3" name="wifi3" type="checkbox" />Our guest Wi-Fi can't access business systems and files.</label>
-<label for="wifi4"><input id="wifi4" name="wifi4" type="checkbox" />Our Wi-Fi name (SSID) is protected with a strong password, not from ISP.</label>
-</div>
-<div class="category">
-<h3>🏢 Inside the Office Network</h3>
-<label for="office1"><input id="office1" name="office1" type="checkbox" />Critical devices (POS, front desk, servers) are wired directly, not through random hubs.</label>
-<label for="office2"><input id="office2" name="office2" type="checkbox" />We use a business-class router, not the ISP's default one.</label>
-<label for="office3"><input id="office3" name="office3" type="checkbox" />We have a backup router/switch/Wi-Fi ready to go if the main one fails.</label>
-<label for="office4"><input id="office4" name="office4" type="checkbox" />All our network gear are under vendor contract for support and updates.</label>
-</div>
-<div class="category">
-<h3>⚙️ Equipment & Readiness</h3>
-<label for="gear1"><input id="gear1" name="gear1" type="checkbox" />All network gear is from reliable business brands, not the cheap one from Amazon or Walmart.</label>
-<label for="gear2"><input id="gear2" name="gear2" type="checkbox" />We've replaced outdated gear in the last 3 years.</label>
-<label for="gear3"><input id="gear3" name="gear3" type="checkbox" />Key devices are on battery backup or we know their uptime during outages.</label>
-<label for="gear4"><input id="gear4" name="gear4" type="checkbox" />We keep a spare router, switch, or Wi-Fi unit on-site or nearby.</label>
-</div>
+  <div class="category card" style="background: linear-gradient(to right, var(--blue-gradient-start), var(--blue-gradient-end)); border-color: var(--blue-border-highlight);">
+    <h3 style="color: var(--blue-border-highlight);">📶 Wi-Fi & Office Coverage</h3>
+    <label for="wifi1"><input id="wifi1" name="wifi1" type="checkbox" />We use business-grade Wi-Fi gear, not the one from the cable company.</label>
+    <label for="wifi2"><input id="wifi2" name="wifi2" type="checkbox" />We have multiple Wi-Fi access points to avoid single-point failure.</label>
+    <label for="wifi3"><input id="wifi3" name="wifi3" type="checkbox" />Our guest Wi-Fi can't access business systems and files.</label>
+    <label for="wifi4"><input id="wifi4" name="wifi4" type="checkbox" />Our Wi-Fi name (SSID) is protected with a strong password, not from ISP.</label>
+  </div>
+
+  <div class="category card" style="background: linear-gradient(to right, var(--purple-gradient-start), var(--purple-gradient-end)); border-color: var(--purple-border-highlight);">
+    <h3 class="label">🏢 Inside the Office Network</h3>
+    <label for="office1"><input id="office1" name="office1" type="checkbox" />Critical devices (POS, front desk, servers) are wired directly, not through random hubs.</label>
+    <label for="office2"><input id="office2" name="office2" type="checkbox" />We use a business-class router, not the ISP's default one.</label>
+    <label for="office3"><input id="office3" name="office3" type="checkbox" />We have a backup router/switch/Wi-Fi ready to go if the main one fails.</label>
+    <label for="office4"><input id="office4" name="office4" type="checkbox" />All our network gear are under vendor contract for support and updates.</label>
+  </div>
+
+  <div class="category card" style="background: linear-gradient(to right, var(--green-gradient-start), var(--green-gradient-end)); border-color: var(--green-border-highlight);">
+    <h3 class="label">⚙️ Equipment & Readiness</h3>
+    <label for="gear1"><input id="gear1" name="gear1" type="checkbox" />All network gear is from reliable business brands, not the cheap one from Amazon or Walmart.</label>
+    <label for="gear2"><input id="gear2" name="gear2" type="checkbox" />We've replaced outdated gear in the last 3 years.</label>
+    <label for="gear3"><input id="gear3" name="gear3" type="checkbox" />Key devices are on battery backup or we know their uptime during outages.</label>
+    <label for="gear4"><input id="gear4" name="gear4" type="checkbox" />We keep a spare router, switch, or Wi-Fi unit on-site or nearby.</label>
+  </div>
+
 </form>
 
 <div class="score-box" id="scoreBox">
 <div class="risk-message" id="riskLevel"></div>
 </div>
 
-<button class="calculate-btn" id="calcBtn">Calculate My Score</button>
+<div style="display: flex; justify-content: center;">
+  <button
+    class="button"
+    id="calcBtn"
+    style="max-width: var(--form-control-max-width); width: 100%;"
+  >
+    Calculate My Score
+  </button>
+</div>
+
 
 <form id="downtime_cost_results">
 <input type="hidden" name="networkRiskScore" id="networkRiskScore" />
