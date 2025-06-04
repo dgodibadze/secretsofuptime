@@ -17,6 +17,9 @@
   --font-xs: 13px;
   --max-width: 1080px;
 
+  /* Centralize Width via Container */
+  --form-control-max-width: 240px;
+
   /* Card gradients and border colors */
   --blue-gradient-start: #0F2A5C;
   --blue-gradient-end: #12264C;
@@ -38,7 +41,7 @@
   --button-gradient: linear-gradient(90deg, #5865F2, #A960EE);
   --button-gradient-hover: linear-gradient(90deg, #4754D4, #954ED1);
   --button-border: #7D6EFF;
-  --button-max-width: 240px;
+  /*  --button-max-width: 240px; */
   --button-radius: var(--radius);
   --button-padding: 0.6rem 1rem;
 
@@ -46,10 +49,14 @@
   --input-bg: var(--bg-light);
   --input-text: var(--text-light);
   --input-border: #5C5A7A;
-  --input-max-width: 240px;
+  /*  --input-max-width: 240px; */
   --input-radius: var(--radius);
   --input-padding: 0.6rem 1rem;
 
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -100,7 +107,6 @@ p {
   border: 1px solid var(--button-border);
   border-radius: var(--button-radius);
   padding: var(--button-padding);
-  max-width: var(--button-max-width);
   width: 100%;
   margin-top: 0.5rem;
   font-size: var(--font-base);
@@ -122,7 +128,6 @@ p {
   border: 1px solid var(--input-border);
   border-radius: var(--input-radius);
   padding: var(--input-padding);
-  max-width: var(--input-max-width);
   width: 100%;
   margin-top: 0.5rem;
   font-size: var(--font-base);
