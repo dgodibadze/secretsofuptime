@@ -190,9 +190,9 @@ p {
 .risk-message {
   margin-top: 0.5rem;
   font-weight: bold;
-  text-align: center;
   opacity: 0;
   transition: opacity 0.8s ease-in;
+  text-align: center; /* ✅ this line fixes the issue */
 }
 
 @media (max-width: 480px) {
