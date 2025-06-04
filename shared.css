@@ -143,3 +143,23 @@ p {
   outline: none;
   border-color: var(--accent);
 }
+
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+}
+
+.form-row .input,
+.form-row .button {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
