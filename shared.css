@@ -10,14 +10,14 @@
   --primary-hover: #4754D4;
   --accent: #A960EE;
   --border-color: #3A4B7C;
-  --radius: 6px;
+  --radius: 8px;
   --radius-lg: 8px;
   --font-base: 16px;
   --font-sm: 14px;
   --font-xs: 13px;
   --max-width: 1080px;
 
-  /* New gradient and border color variables */
+  /* Card gradients and border colors */
   --blue-gradient-start: #0F2A5C;
   --blue-gradient-end: #12264C;
   --blue-border-highlight: #489DF5;
@@ -33,6 +33,23 @@
   --purple-gradient-start: #262362;
   --purple-gradient-end: #142342;
   --purple-border-highlight: #B579F6;
+
+  /* Button sizes, gradients, and border colors */
+  --button-gradient: linear-gradient(90deg, #5865F2, #A960EE);
+  --button-gradient-hover: linear-gradient(90deg, #4754D4, #954ED1);
+  --button-border: #7D6EFF;
+  --button-max-width: 240px;
+  --button-radius: var(--radius);
+  --button-padding: 0.6rem 1rem;
+
+  /* Input sizes, gradients, and border colors */
+  --input-bg: var(--bg-light);
+  --input-text: var(--text-light);
+  --input-border: #5C5A7A;
+  --input-max-width: 240px;
+  --input-radius: var(--radius);
+  --input-padding: 0.6rem 1rem;
+
 }
 
 body {
@@ -78,16 +95,46 @@ p {
 
 .button {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1rem;
-  background-color: var(--primary);
+  background: var(--button-gradient);
   color: var(--text-light);
-  border: none;
-  border-radius: var(--radius);
+  border: 1px solid var(--button-border);
+  border-radius: var(--button-radius);
+  padding: var(--button-padding);
+  max-width: var(--button-max-width);
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: var(--font-base);
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .button:hover {
-  background-color: var(--primary-hover);
+  background: var(--button-gradient-hover);
+}
+
+.button:active {
+  filter: brightness(0.9);
+}
+
+.input {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  padding: var(--input-padding);
+  max-width: var(--input-max-width);
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: var(--font-base);
+  transition: border-color 0.2s ease;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
 }
