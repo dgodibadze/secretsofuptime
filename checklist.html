@@ -1,164 +1,181 @@
+<!-- Version: 2.0 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Is Your Network Actually Resilient?</title>
-<style>
-body {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-background: #0a1124;
-color: #e2e8f0;
-padding: 2rem;
-line-height: 1.8;
-font-size: 18px;
-}
-.category {
-margin-bottom: 2.5rem;
-}
-.category h3 {
-color: #90cdf4;
-margin-bottom: 1rem;
-}
-label {
-display: block;
-margin: 0.75rem 0;
-padding: 0.5rem 1rem;
-background: #1a202c;
-border-radius: 6px;
-transition: background 0.2s;
-}
-label:hover {
-background: #2d3748;
-}
-input[type="checkbox"] {
-margin-right: 0.75rem;
-}
-.score-box {
-background: #1e263b;
-padding: 2rem;
-margin-top: 3rem;
-border-radius: 10px;
-text-align: center;
-font-size: 1.2rem;
-display: none;
-}
-.risk-message {
-margin-top: 1.5rem;
-font-weight: bold;
-opacity: 0;
-transition: opacity 0.8s ease-in;
-}
-.calculate-btn {
-display: block;
-margin: 2rem auto 0 auto;
-padding: 1rem 2rem;
-background: linear-gradient(45deg, #0F2A5C 35%, #12264C 50%);
-color: white;
-border: none;
-border-radius: 6px;
-font-size: 1rem;
-cursor: pointer;
-transition: opacity 0.2s;
-min-width: 220px;
-text-align: center;
-}
-.calculate-btn:hover {
-opacity: 0.9;
-}
-@media (max-width: 480px) {
-body {
-font-size: 16px;
-padding: 1.5rem;
-}
-.score-box {
-font-size: 1rem;
-padding: 1.5rem;
-}
-label {
-font-size: 90%;
-}
-.category h3 {
-font-size: 95%;
-}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is Your Network Actually Resilient?</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a1124;
+      color: #e2e8f0;
+      padding: 2rem;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+    .category {
+      margin-bottom: 2.5rem;
+    }
+    .category h3 {
+      color: #90cdf4;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin: 0.75rem 0;
+      padding: 0.5rem 1rem;
+      background: #1a202c;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    label:hover {
+      background: #2d3748;
+    }
+    input[type="checkbox"] {
+      margin-right: 0.75rem;
+    }
+    .score-box {
+      background: #1e263b;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.2rem;
+      display: none;
+    }
+    .risk-message {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.8s ease-in;
+    }
+    .calculate-btn {
+      display: block;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #0F2A5C 35%, #12264C 50%);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      min-width: 220px;
+      text-align: center;
+    }
+    .calculate-btn:hover {
+      opacity: 0.9;
+    }
+    @media (max-width: 480px) {
+      body {
+        font-size: 16px;
+        padding: 1.5rem;
+      }
+      .score-box {
+        font-size: 1rem;
+        padding: 1.5rem;
+      }
+      label {
+        font-size: 90%;
+      }
+      .category h3 {
+        font-size: 95%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<form id="checklist">
-<div class="category">
-<h3>🌐 Internet Uptime</h3>
-<label><input type="checkbox" />We have two internet providers - if one fails, the other keeps us online.</label>
-<label><input type="checkbox" />Our system switches automatically when the main internet goes out.</label>
-<label><input type="checkbox" />We don't rely on a cellphone hotspot to keep the business online.</label>
-<label><input type="checkbox" />We've tested our backup internet in the last 3 months.</label>
-</div>
-<div class="category">
-<h3>📶 Wi-Fi & Office Coverage</h3>
-<label><input type="checkbox" />We use business-grade Wi-Fi gear, not the one from the cable company.</label>
-<label><input type="checkbox" />We have multiple Wi-Fi access points to avoid single-point failure.</label>
-<label><input type="checkbox" />Our guest Wi-Fi can't access business systems and files.</label>
-<label><input type="checkbox" />Our Wi-Fi name (SSID) is protected with a strong password, not from ISP.</label>
-</div>
-<div class="category">
-<h3>🏢 Inside the Office Network</h3>
-<label><input type="checkbox" />Critical devices (POS, front desk, servers) are wired directly, not through random hubs.</label>
-<label><input type="checkbox" />We use a business-class router, not the ISP's default one.</label>
-<label><input type="checkbox" />We have a backup router/switch/Wi-Fi ready to go if the main one fails.</label>
-<label><input type="checkbox" />All our network gear are under vendor contract for support and updates.</label>
-</div>
-<div class="category">
-<h3>⚙️ Equipment & Readiness</h3>
-<label><input type="checkbox" />All network gear is from reliable business brands, not the cheap one from Amazon or Walmart.</label>
-<label><input type="checkbox" />We've replaced outdated gear in the last 3 years.</label>
-<label><input type="checkbox" />Key devices are on battery backup or we know their uptime during outages.</label>
-<label><input type="checkbox" />We keep a spare router, switch, or Wi-Fi unit on-site or nearby.</label>
-</div>
-</form>
+  <form id="checklist">
+    <div class="category">
+      <h3>🌐 Internet Uptime</h3>
+      <label for="uptime1"><input id="uptime1" name="uptime1" type="checkbox" />We have two internet providers - if one fails, the other keeps us online.</label>
+      <label for="uptime2"><input id="uptime2" name="uptime2" type="checkbox" />Our system switches automatically when the main internet goes out.</label>
+      <label for="uptime3"><input id="uptime3" name="uptime3" type="checkbox" />We don't rely on a cellphone hotspot to keep the business online.</label>
+      <label for="uptime4"><input id="uptime4" name="uptime4" type="checkbox" />We've tested our backup internet in the last 3 months.</label>
+    </div>
+    <div class="category">
+      <h3>📶 Wi-Fi & Office Coverage</h3>
+      <label for="wifi1"><input id="wifi1" name="wifi1" type="checkbox" />We use business-grade Wi-Fi gear, not the one from the cable company.</label>
+      <label for="wifi2"><input id="wifi2" name="wifi2" type="checkbox" />We have multiple Wi-Fi access points to avoid single-point failure.</label>
+      <label for="wifi3"><input id="wifi3" name="wifi3" type="checkbox" />Our guest Wi-Fi can't access business systems and files.</label>
+      <label for="wifi4"><input id="wifi4" name="wifi4" type="checkbox" />Our Wi-Fi name (SSID) is protected with a strong password, not from ISP.</label>
+    </div>
+    <div class="category">
+      <h3>🏢 Inside the Office Network</h3>
+      <label for="office1"><input id="office1" name="office1" type="checkbox" />Critical devices (POS, front desk, servers) are wired directly, not through random hubs.</label>
+      <label for="office2"><input id="office2" name="office2" type="checkbox" />We use a business-class router, not the ISP's default one.</label>
+      <label for="office3"><input id="office3" name="office3" type="checkbox" />We have a backup router/switch/Wi-Fi ready to go if the main one fails.</label>
+      <label for="office4"><input id="office4" name="office4" type="checkbox" />All our network gear are under vendor contract for support and updates.</label>
+    </div>
+    <div class="category">
+      <h3>⚙️ Equipment & Readiness</h3>
+      <label for="gear1"><input id="gear1" name="gear1" type="checkbox" />All network gear is from reliable business brands, not the cheap one from Amazon or Walmart.</label>
+      <label for="gear2"><input id="gear2" name="gear2" type="checkbox" />We've replaced outdated gear in the last 3 years.</label>
+      <label for="gear3"><input id="gear3" name="gear3" type="checkbox" />Key devices are on battery backup or we know their uptime during outages.</label>
+      <label for="gear4"><input id="gear4" name="gear4" type="checkbox" />We keep a spare router, switch, or Wi-Fi unit on-site or nearby.</label>
+    </div>
+  </form>
 
-<button class="calculate-btn" onclick="calculateScore()">Calculate My Score</button>
+  <div class="score-box" id="scoreBox">
+    <div class="risk-message" id="riskLevel"></div>
+  </div>
 
-<div class="score-box" id="scoreBox">
-<div class="risk-message" id="riskLevel"></div>
-</div>
+  <button class="calculate-btn" id="calcBtn">Calculate My Score</button>
 
-<script>
-function calculateScore() {
-const checklist = document.getElementById('checklist');
-const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
-const riskLevel = document.getElementById('riskLevel');
-const scoreBox = document.getElementById('scoreBox');
+  <form id="downtime_cost_results">
+    <input type="hidden" name="networkRiskScore" id="networkRiskScore" />
+    <input type="hidden" name="networkRiskLevel" id="networkRiskLevel" />
+  </form>
 
-let checked = 0;
-checkboxes.forEach(cb => {
-if (cb.checked) checked++;
-});
+  <script>
+    document.getElementById('calcBtn').addEventListener('click', calculateScore);
 
-let icon = '';
-let message = '';
+    function calculateScore(event) {
+      event.preventDefault();
+      const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+      const riskLevel = document.getElementById('riskLevel');
+      const scoreBox = document.getElementById('scoreBox');
 
-if (checked <= 5) {
-icon = '🔴';
-message = 'High Risk: One issue could bring everything to a stop. Your network needs immediate attention to avoid costly downtime';
-riskLevel.style.color = 'red';
-} else if (checked <= 11) {
-icon = '🟠';
-message = 'Moderate Risk: You\'ve made progress, but gaps remain. Address the unchecked items to improve your network resilience.';
-riskLevel.style.color = 'orange';
-} else {
-icon = '🟢';
-message = 'Low Risk: Well done! You\'re better prepared than most small businesses. Keep maintaining your network infrastructure.';
-riskLevel.style.color = 'limegreen';
-}
+      let checked = 0;
+      checkboxes.forEach(cb => {
+        if (cb.checked) checked++;
+      });
 
-scoreBox.style.display = 'block';
-riskLevel.style.opacity = 0;
-setTimeout(() => {
-riskLevel.textContent = `${icon} ${message}`;
-riskLevel.style.opacity = 1;
-}, 500);
-}
-</script>
+      let icon = '', message = '', color = '', riskValue = '';
+
+      if (checked <= 5) {
+        icon = '🔴';
+        message = 'High Risk: One issue could bring everything to a stop.';
+        color = 'red';
+        riskValue = 'high';
+      } else if (checked <= 11) {
+        icon = '🟠';
+        message = 'Moderate Risk: Gaps remain. Address the unchecked items.';
+        color = 'orange';
+        riskValue = 'moderate';
+      } else {
+        icon = '🟢';
+        message = 'Low Risk: Well done! Maintain your network resilience.';
+        color = 'limegreen';
+        riskValue = 'low';
+      }
+
+      document.getElementById('networkRiskScore').value = checked;
+      document.getElementById('networkRiskLevel').value = riskValue;
+
+      scoreBox.style.display = 'block';
+      riskLevel.style.opacity = 0;
+
+      setTimeout(() => {
+        riskLevel.textContent = `${icon} ${message}`;
+        riskLevel.style.color = color;
+        riskLevel.style.opacity = 1;
+        scoreBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+  </script>
+
 </body>
 </html>
