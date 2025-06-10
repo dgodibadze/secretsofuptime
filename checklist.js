@@ -67,7 +67,7 @@
         }
 
         function goToDowntimeCalculator() {
-            alert('Redirecting to Downtime Cost Calculator...\n(This would typically navigate to another page)');
+            window.open('https://calculator.davidgodibadze.com/', '_blank');
         }
 
         // Close modal when clicking outside
