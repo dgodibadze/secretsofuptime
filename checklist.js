@@ -67,7 +67,7 @@
         }
 
         function goToDowntimeCalculator() {
-            window.open('https://calculator.davidgodibadze.com/?access=SecretsUptime2025', '_blank');
+            window.open('https://calculator-gen.secretsofuptime.com/?access=SecretsUptime2025', '_blank');
         }
 
         // Close modal when clicking outside
